@@ -7,7 +7,7 @@
       </template>
       <template #center>购物街</template>
       <template #right>
-        <div class="login">登录</div>
+        <a href="/test.html" class="login">登录</a>
       </template>
     </nav-bar>
     <!-- tabControl来决定是否固定显示的 -->
@@ -208,20 +208,18 @@ export default {
   z-index: 9;
 }
 .login {
-  position: relative;
-  font-family: 黑体;
+  color: #fff;
 }
-.login::before {
+/* .login::before {
   content: '';
   position: absolute;
   left: -20px;
-  /* top: 1px; */
   background: url('~assets/img/common/user.png');
   background-size: 100%;
   width: 40px;
   height: 40px;
   clear: both;
-}
+} */
 .icon-left {
   width: 18px;
   height: 18px;
