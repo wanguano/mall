@@ -12,7 +12,7 @@
     </nav-bar>
     <!-- tabControl来决定是否固定显示的 -->
     <tab-control :titles="['流行', '新款', '精选']" @clickItem="clickItem" ref="tabControlFixed" class="tab-control-fixed" v-show="isControlFixed" />
-
+    
     <!-- scroll 惯性移动 probeType:3监听滚动 -->
     <scroll class="content" ref="scroll" :probeType="2" @scrollInfo="scrollInfo" :pullUpLoad="true" @pullingUp="loadMore">
       <!-- 轮播图 -->
@@ -29,7 +29,6 @@
 
     <!-- backTop 返回顶部图标 -->
     <BackTop @click.native="backTop" v-show="isShowTop" />
-
   </div>
 </template>
 
@@ -80,13 +79,15 @@ export default {
   created() {
     // 1.轮播图数据
     this.getHomeMultidata()
-
+    
     // 2.商品列表数据
     this.getHomeGoods(POP)
     this.getHomeGoods(NEW)
     this.getHomeGoods(SELL)
 
     // 3.详情推荐商品数据
+    
+    
   },
   mixins: [itemImgMixin, backTopMixin],
   methods: {
