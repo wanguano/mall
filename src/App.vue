@@ -5,7 +5,6 @@
     </keep-alive>
     <!-- main-tab-bar 底部导航 -->
     <main-tab-bar />
-    
   </div>
 </template>
 

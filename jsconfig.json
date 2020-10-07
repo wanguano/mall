@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "checkJs": false,
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "module": "commonjs",
-    "paths": {
-      "@*": ["./src/*"],
-    }
+     "target": "es2017",
+     "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+          "@/*": ["src/*"]
+     }
   },
-  "exclude": ["node_modules", "dist", "temp"],
-  "include": ["src/**/*", "types/**/*"]
+  "exclude": ["node_modules", "dist"]
 }
