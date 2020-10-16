@@ -15,7 +15,6 @@ export default {
   name: 'App',
   components: {
     MainTabBar,
-    List,
   },
   provide: {
     foo: '我是APP组件通过provide传递的foo'

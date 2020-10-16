@@ -1,4 +1,3 @@
-const CompressionPlugin = require('compression-webpack-plugin')
 const path = require("path");
 
 function resolve(dir) {
@@ -16,8 +15,8 @@ module.exports = {
       .set("components", resolve("src/components"))
       .set("network", resolve("src/network"))
       .set("common", resolve("src/common"));
-  },
-  configureWebpack: {
-    // devtool: 'source-map'
-  },
-}
+  }
+  // configureWebpack: {
+  //   // devtool: 'source-map' vscode调试vue用的
+  // },
+};

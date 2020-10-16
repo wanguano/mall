@@ -33,6 +33,7 @@ export default {
 } */
 .profile-nav {
   background-color: var(--color-tint);
+  /* background: url(''); */
   color: #fff;
 }
 </style>
