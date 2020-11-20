@@ -7,7 +7,7 @@
     <!-- ProfileHeader 头部信息 -->
     <profile-header />
     <!-- ProfileManage 个人信息管理 -->
-    <profile-manage :profileManage="['我的订单','账号管理','地址管理','人工客服','关于我们',]"/>
+    <profile-manage :profileManage="['我的订单','账号管理','地址管理','人工客服','关于我们',]" />
     
   </div>
 </template>
