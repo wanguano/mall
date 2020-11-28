@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <nav-bar class="home-nav">
       <template #left>
-        <img class="icon-left" src="~assets/img/common/left-btn.png" alt="">
+        <img class="icon-left" src="~assets/img/common/left-btn.png" alt="" />
       </template>
       <template #center>购物街</template>
       <template #right>
@@ -11,10 +11,23 @@
       </template>
     </nav-bar>
     <!-- tabControl来决定是否固定显示的 -->
-    <tab-control :titles="['流行', '新款', '精选']" @clickItem="clickItem" ref="tabControlFixed" class="tab-control-fixed" v-show="isControlFixed" />
-    
+    <tab-control
+      :titles="['流行', '新款', '精选']"
+      @clickItem="clickItem"
+      ref="tabControlFixed"
+      class="tab-control-fixed"
+      v-show="isControlFixed"
+    />
+
     <!-- scroll 惯性移动 probeType:3监听滚动 -->
-    <scroll class="content" ref="scroll" :probeType="2" @scrollInfo="scrollInfo" :pullUpLoad="true" @pullingUp="loadMore">
+    <scroll
+      class="content"
+      ref="scroll"
+      :probeType="2"
+      @scrollInfo="scrollInfo"
+      :pullUpLoad="true"
+      @pullingUp="loadMore"
+    >
       <!-- 轮播图 -->
       <home-swiper :banners="banners" @tabImgLoad="tabImgLoad" />
       <!-- recommend -->
@@ -22,7 +35,11 @@
       <!-- FeatureView -->
       <feature-view />
       <!-- TabControl -->
-      <tab-control :titles="['流行', '新款', '精选']" @clickItem="clickItem" ref="tabControl" />
+      <tab-control
+        :titles="['流行', '新款', '精选']"
+        @clickItem="clickItem"
+        ref="tabControl"
+      />
       <!-- GoodList -->
       <goods-list :goods="showGoods" />
     </scroll>
@@ -79,15 +96,15 @@ export default {
   created() {
     // 1.轮播图数据
     this.getHomeMultidata()
-    
+
     // 2.商品列表数据
     this.getHomeGoods(POP)
     this.getHomeGoods(NEW)
     this.getHomeGoods(SELL)
 
     // 3.详情推荐商品数据
-    
-    
+
+
   },
   mixins: [itemImgMixin, backTopMixin],
   methods: {
