@@ -56,12 +56,10 @@ export default {
   padding: 15px;
   z-index: 99;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.76);
-  border-radius: 15%;
+  background: linear-gradient(to top, #091E3A, #2F80ED, #2D9EE0);
+  border-radius: 10%;
   box-sizing: border-box;
   color: #fff;
-  border-radius: 25%;
-  /* transition: all .5s; */
 }
 .toast-enter-active {
   animation: fade 0.5s;

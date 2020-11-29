@@ -39,7 +39,8 @@ export default {
   methods: {
     isClick() {
       // 有商品
-      if (this.cartList.length > 1) {
+      console.log(this.cartList.length)
+      if (this.cartList.length >= 1) {
         let isSelect = !this.isCheck
         this.$store.state.cartList.map(item => {
           item.checked = isSelect
@@ -52,6 +53,7 @@ export default {
     },
     toast() {
       if (!this.isCheck) this.$toast.show('您还没有选择商品')
+      else this.$toast.show('暂时没有做支付功能')
     }
   },
   mounted() {
