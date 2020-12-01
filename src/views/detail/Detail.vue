@@ -1,9 +1,18 @@
 <template>
   <div id="detail">
     <!-- detail-nav-bar 头部导航 -->
-    <detail-nav-bar class="detail-nav" @titleClick="titleClick" ref="detailNav" />
+    <detail-nav-bar
+      class="detail-nav"
+      @titleClick="titleClick"
+      ref="detailNav"
+    />
     <!-- scroll 管理区域 -->
-    <scroll class="detail-scroll" ref="scroll" :probeType="3" @scrollInfo="scrollInfo">
+    <scroll
+      class="detail-scroll"
+      ref="scroll"
+      :probeType="3"
+      @scrollInfo="scrollInfo"
+    >
       <!-- detail-swiper 轮播图 -->
       <detail-swiper :topImages="topImages"></detail-swiper>
       <!-- DetailBaseInfo 商品详情信息 -->
@@ -45,6 +54,7 @@ import { itemImgMixin, backTopMixin } from 'common/mixin'
 import { getDetail, Goods, Shop, GoodsParam, getRecommend } from 'network/detail'
 // mapActions
 import { mapActions } from 'vuex'
+import { throttle } from '@/common/utils'
 export default {
   name: "Detail",
   data() {
@@ -59,6 +69,7 @@ export default {
       recommend: [],
       themeTopY: [],
       currentIndex: 0,
+      delayCart: true
     }
   },
   components: {
@@ -172,30 +183,39 @@ export default {
       this.$refs.scroll.backTop(0, 0)
     },
 
-    // 加入购物车
+   // 加入购物车
     addToCart() {
-      // 1.根据购物车界面需要,设计数据结构: 图片,标题,描述,价格
-      let product = {}
-      product.image = this.topImages[0]
-      product.title = this.goods.title
-      product.desc = this.goods.desc
-      product.price = this.goods.realPrice
-      product.iid = this.iid
-      // 2.提交mutation
-      this.addCart(product).then(value => {
-        // console.log(value)
-        // 显示Toast,传递value
-        // this.show = true
-        // this.message = value
-        // // 1.5秒后取消显示
-        // setTimeout(() => {
-        //   this.show = false
-        //   this.message = ''
-        // }, 1500);
-        // console.log(this.$toast.show)
-        this.$toast.show(value, 1500)
-      })
+      // 添加购物车
+      // const addCart = () => {
+        // 1.根据购物车界面需要,设计数据结构: 图片,标题,描述,价格
+        let product = {}
+        product.image = this.topImages[0]
+        product.title = this.goods.title
+        product.desc = this.goods.desc
+        product.price = this.goods.realPrice
+        product.iid = this.iid
+        console.log('123')
+        // 2.提交mutation
+        this.addCart(product).then(value => {
+          // console.log(value)
+          // 显示Toast,传递value
+          // this.show = true
+          // this.message = value
+          // // 1.5秒后取消显示
+          // setTimeout(() => {
+          //   this.show = false
+          //   this.message = ''
+          // }, 1500);
+          // console.log(this.$toast.show)
+          this.$toast.show(value, 1500)
+        })
+      // }
+      // 对频繁点击的按钮进行函数节流
+      // throttle(addCart, 400)
     }
+
+
+
   },
   updated() {
     // // 获取 参数 评论 推荐的真实offsetTop

@@ -25,6 +25,9 @@ import ProfileHeader from './childComps/Profile-header'
 import NavBar from "components/common/navbar/NavBar";
 export default {
   name: "",
+  mounted() {
+    // console.log(this.$store.state.cartList)
+  },
   data() {
     return {
       mes: '父组件传递的信息'
